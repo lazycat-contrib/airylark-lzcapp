@@ -5,5 +5,6 @@ if [ ! -f /app/data/env.yaml ];then
 fi
 echo "apply env setting"
 source /app/data/env.yaml
+set +a
 echo "run server"
 node /app/server.js
