@@ -1,12 +1,11 @@
 #!/bin/sh
 set -a
-mkdir -p /app/data
-chown nextjs:nodejs /app/data
-if [ ! -f /app/data/env.yaml ];then
-   cp -f /lzcapp/pkg/content/env.yaml /app/data/env.yaml
+chown -R nextjs:nodejs /app/node_modules
+if [ ! -f /app/node_modules/data/env.yaml ];then
+   cp -f /lzcapp/pkg/content/env.yaml /app/node_modules/data/env.yaml
 fi
 echo "apply env setting"
-source /app/data/env.yaml
+source /app/node_modules/data/env.yaml
 set +a
 echo "run server"
 node /app/server.js

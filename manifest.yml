@@ -19,9 +19,10 @@ application:
 services:
   airylark:
     image: docker.hlmirror.com/wizdy/airylark:latest
+    user: root
     environment:
       - NODE_ENV=production
     binds:
-      - /lzcapp/var/data:/app/data
+      - /lzcapp/var/data:/app/node_modules/data
     command: /lzcapp/pkg/content/startup.sh 
 
