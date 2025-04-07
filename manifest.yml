@@ -1,7 +1,7 @@
 lzc-sdk-version: "0.1"
 name: AiryLark
 package: cloud.lazycat.app.airylark
-version: 0.0.1
+version: 0.0.2
 description: 一个多功能文档处理与翻译工具
 homepage: https://github.com/wizd/airylark
 author: wizd
@@ -23,6 +23,6 @@ services:
     environment:
       - NODE_ENV=production
     binds:
-      - /lzcapp/var/data:/app/node_modules/data
+      - /lzcapp/var/data:/app/data
     command: /lzcapp/pkg/content/startup.sh 
 
