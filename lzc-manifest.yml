@@ -9,8 +9,8 @@ application:
       backend: http://airylark:3000/
 services:
   airylark:
-    # upstream: wizdy/airylark:latest
-    image: wizdy/airylark:latest
+    # upstream: wizdy/airylark:latest@sha256:42ae6bdfa594034a909702c34ec88f52e6f12b4b80fa4aa4723237589e9c24b4
+    image: registry.lazycat.cloud/czyt/wizdy/airylark:831672abda2c1d41
     user: root
     environment:
       - NODE_ENV=production
