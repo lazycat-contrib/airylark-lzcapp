@@ -1,0 +1,39 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: .lazycat-build/airylark.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: airylark
+    bump: patch
+build:
+  run_buildscript: false
+images:
+  # 主应用：上游只有 mutable latest tag，无 immutable 家族 → custom + created 排序 + bump: patch
+  - id: airylark
+    target: service
+    service: airylark
+    source: wizdy/airylark
+    channel: custom
+    sort: created
+    tag_regex: '^latest$'
+    delivery:
+      mode: lazycat
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    changelog_locales: [zh, en]
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: AiryLark
+    summary: "一个多功能文档处理与翻译工具"
